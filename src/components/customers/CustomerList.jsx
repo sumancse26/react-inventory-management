@@ -55,7 +55,9 @@ const CustomerList = () => {
                                 <thead className="bg-gray-50 dark:bg-neutral-800">
                                     <tr>
                                         <th scope="col" className="ps-6 py-3 text-start">
-                                            <label htmlFor="hs-at-with-checkboxes-main" className="flex">
+                                            <label
+                                                htmlFor="hs-at-with-checkboxes-main"
+                                                className="flex">
                                                 <input
                                                     type="checkbox"
                                                     className="shrink-0 border-gray-300 rounded text-blue-600 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-800 dark:border-neutral-600 dark:checked:bg-blue-500 dark:checked:border-blue-500 dark:focus:ring-offset-gray-800"
@@ -65,7 +67,9 @@ const CustomerList = () => {
                                             </label>
                                         </th>
 
-                                        <th scope="col" className="ps-6 lg:ps-3 xl:ps-0 pe-6 py-3 text-start">
+                                        <th
+                                            scope="col"
+                                            className="ps-6 lg:ps-3 xl:ps-0 pe-6 py-3 text-start">
                                             <div className="flex items-center gap-x-2">
                                                 <span className="text-xs font-semibold uppercase tracking-wide text-gray-800 dark:text-neutral-200">
                                                     Name
@@ -113,7 +117,9 @@ const CustomerList = () => {
                                     <tr>
                                         <td className="size-px whitespace-nowrap">
                                             <div className="ps-6 py-3">
-                                                <label htmlFor="hs-at-with-checkboxes-1" className="flex">
+                                                <label
+                                                    htmlFor="hs-at-with-checkboxes-1"
+                                                    className="flex">
                                                     <input
                                                         type="checkbox"
                                                         className="shrink-0 border-gray-300 rounded text-blue-600 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-800 dark:border-neutral-600 dark:checked:bg-blue-500 dark:checked:border-blue-500 dark:focus:ring-offset-gray-800"
@@ -178,7 +184,9 @@ const CustomerList = () => {
                                                         <div
                                                             className="flex flex-col justify-center overflow-hidden bg-gray-800 dark:bg-neutral-200"
                                                             role="progressbar"
-                                                            style={{ width: '25%' }}
+                                                            style={{
+                                                                width: '25%'
+                                                            }}
                                                             aria-valuenow="25"
                                                             aria-valuemin="0"
                                                             aria-valuemax="100"></div>
@@ -209,7 +217,9 @@ const CustomerList = () => {
                             <div className="px-6 py-4 grid gap-3 md:flex md:justify-between md:items-center border-t border-gray-200 dark:border-neutral-700">
                                 <div>
                                     <p className="text-sm text-gray-600 dark:text-neutral-400">
-                                        <span className="font-semibold text-gray-800 dark:text-neutral-200">12</span>{' '}
+                                        <span className="font-semibold text-gray-800 dark:text-neutral-200">
+                                            12
+                                        </span>{' '}
                                         results
                                     </p>
                                 </div>
@@ -297,8 +307,8 @@ const CustomerList = () => {
                                         </div>
                                         <div className="p-4 overflow-y-auto">
                                             <p className="mt-1 text-gray-800 dark:text-neutral-400">
-                                                This is a wider card with supporting text below as a natural lead-in to
-                                                additional content.
+                                                This is a wider card with supporting text below as a
+                                                natural lead-in to additional content.
                                             </p>
                                         </div>
                                         <div className="flex justify-end items-center gap-x-2 py-3 px-4 border-t dark:border-neutral-700">
@@ -328,3 +338,4 @@ const CustomerList = () => {
 };
 
 export default CustomerList;
+

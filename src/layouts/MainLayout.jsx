@@ -1,13 +1,13 @@
-import { Routes, Route } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 
 import Header from '../components/header/Header.jsx';
 import MobileMenu from '../components/mobileMenu/MobileMenu.jsx';
 import SideNav from '../components/sideNav/SideNavbar.jsx';
-import Dashboard from '../pages/dashboard/Dashboard.jsx';
-import User from '../pages/User/User.jsx';
 import Customer from '../pages/customer/Customer.jsx';
+import Dashboard from '../pages/dashboard/Dashboard.jsx';
 import Product from '../pages/product/Product.jsx';
 import Sales from '../pages/sales/Sales.jsx';
+import User from '../pages/User/User.jsx';
 
 const Layout = () => {
     return (
@@ -31,3 +31,4 @@ const Layout = () => {
 };
 
 export default Layout;
+

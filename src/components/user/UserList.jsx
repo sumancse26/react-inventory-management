@@ -1,15 +1,15 @@
 /* eslint-disable react/prop-types */
-import { forwardRef } from 'react';
+import { forwardRef } from "react";
 
 const UserList = forwardRef(({ type }, ref) => {
-    const test = () => {
-        alert(1);
-        ref.current;
-    };
+  const test = () => {
+    alert(1);
+    ref.current;
+  };
 
-    return <input ref={ref} type={type} value="test input" onChange={test} />;
+  return <input ref={ref} type={type} value="test input" onChange={test} />;
 });
 
-UserList.displayName = 'UserList';
+UserList.displayName = "UserList";
 
 export default UserList;

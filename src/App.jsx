@@ -1,4 +1,4 @@
-import Layout from './layouts/MainLayout.jsx';
+import Layout from '@/layouts/MainLayout.jsx';
 import './App.css';
 
 function App() {
@@ -6,3 +6,4 @@ function App() {
 }
 
 export default App;
+

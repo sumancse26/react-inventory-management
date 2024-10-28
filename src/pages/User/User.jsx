@@ -1,4 +1,4 @@
-import User from '../../components/user/UserList.jsx';
+import User from '@/components/user/UserList.jsx';
 import { useRef } from 'react';
 
 const UserPage = () => {
@@ -11,3 +11,4 @@ const UserPage = () => {
 };
 
 export default UserPage;
+
