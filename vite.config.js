@@ -32,7 +32,7 @@ export default defineConfig({
         }
     },
     server: {
-        port: 8000,
+        port: 5000,
         host: true,
         open: true
     }
