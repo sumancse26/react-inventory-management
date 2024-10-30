@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 const AddCustomer = ({ isOpen, onClose }) => {
     if (!isOpen) return null;
     return (
@@ -31,7 +32,7 @@ const AddCustomer = ({ isOpen, onClose }) => {
                         </label>
                         <input
                             type="text"
-                            className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-purple-500 focus:border-purple-500 transition-all dark:bg-neutral-700 dark:border-neutral-600 dark:focus:border-purple-500"
+                            className="mt-1 w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:border-custom-pink focus:ring-1 focus:ring-custom-purple"
                             placeholder="Enter name"
                         />
                     </div>
@@ -41,7 +42,7 @@ const AddCustomer = ({ isOpen, onClose }) => {
                         </label>
                         <input
                             type="email"
-                            className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-purple-500 focus:border-purple-500 transition-all dark:bg-neutral-700 dark:border-neutral-600 dark:focus:border-purple-500"
+                            className="mt-1 w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:border-custom-pink focus:ring-1 focus:ring-custom-purple"
                             placeholder="Enter email"
                         />
                     </div>
@@ -51,7 +52,7 @@ const AddCustomer = ({ isOpen, onClose }) => {
                         </label>
                         <input
                             type="tel"
-                            className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-purple-500 focus:border-purple-500 transition-all dark:bg-neutral-700 dark:border-neutral-600 dark:focus:border-purple-500"
+                            className="mt-1 w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:border-custom-pink focus:ring-1 focus:ring-custom-purple"
                             placeholder="Enter mobile number"
                         />
                     </div>
@@ -64,7 +65,7 @@ const AddCustomer = ({ isOpen, onClose }) => {
                         </button>
                         <button
                             type="submit"
-                            className="py-2 px-4 bg-purple-600 text-white rounded-md hover:bg-purple-700 focus:ring-2 focus:ring-purple-500">
+                            className="py-2 px-4 bg-purple-600 text-white rounded-md btn-gradient">
                             Save Changes
                         </button>
                     </div>

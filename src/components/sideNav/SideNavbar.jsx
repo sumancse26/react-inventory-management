@@ -95,7 +95,7 @@ const Nav = () => {
                                             <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
                                             <path d="M16 3.13a4 4 0 0 1 0 7.75" />
                                         </svg>
-                                        Account
+                                        Profile
                                     </span>
                                     <span className="material-icons">keyboard_arrow_right</span>
                                 </NavLink>
@@ -122,7 +122,7 @@ const Nav = () => {
                                             <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
                                             <path d="M16 3.13a4 4 0 0 1 0 7.75" />
                                         </svg>
-                                        Customers
+                                        Customer
                                     </span>
                                     <span className="material-icons">keyboard_arrow_right</span>
                                 </NavLink>
@@ -154,7 +154,7 @@ const Nav = () => {
                                             />
                                             <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
                                         </svg>
-                                        Products
+                                        Product
                                     </span>
                                     <span className="material-icons">keyboard_arrow_right</span>
                                 </NavLink>
@@ -194,7 +194,7 @@ const Nav = () => {
                                             <path d="M12 18h.01" />
                                             <path d="M16 18h.01" />
                                         </svg>
-                                        Sales
+                                        Sale
                                     </span>
                                     <span className="material-icons font-light">
                                         keyboard_arrow_right
@@ -222,7 +222,7 @@ const Nav = () => {
                                             <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" />
                                             <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" />
                                         </svg>
-                                        Invoices
+                                        Invoice
                                     </span>
                                     <span className="material-icons">keyboard_arrow_right</span>
                                 </NavLink>
@@ -248,7 +248,7 @@ const Nav = () => {
                                             <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" />
                                             <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" />
                                         </svg>
-                                        Reports
+                                        Report
                                     </span>
                                     <span className="material-icons">keyboard_arrow_right</span>
                                 </NavLink>
@@ -262,4 +262,3 @@ const Nav = () => {
 };
 
 export default Nav;
-

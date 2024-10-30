@@ -2,7 +2,7 @@ const Header = () => {
     return (
         <header className="top-0 inset-x-0 flex flex-wrap md:justify-start md:flex-nowrap z-[48] w-full bg-white border-b text-sm py-2.5 lg:ps-[260px] dark:bg-neutral-800 dark:border-neutral-700">
             <nav className="px-4 sm:px-6 flex basis-full items-center w-full mx-auto">
-                {/* <div className="me-5 lg:me-0">
+                <div className="me-5 lg:me-0 lg:hidden sm:visible">
                     <a
                         className="flex-none rounded-md text-xl inline-block font-semibold focus:outline-none focus:opacity-80"
                         href="#"
@@ -40,88 +40,28 @@ const Header = () => {
                             />
                         </svg>
                     </a>
-                </div> */}
+                </div>
 
                 <div className="w-full flex items-center justify-end ms-auto md:justify-between gap-x-1 md:gap-x-3">
-                    <div className="hidden md:block">
-                        <div className="relative">
-                            <div className="absolute inset-y-0 start-0 flex items-center pointer-events-none z-20 ps-3.5">
-                                <svg
-                                    className="shrink-0 size-4 text-gray-400 dark:text-white/60"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    width="24"
-                                    height="24"
-                                    viewBox="0 0 24 24"
-                                    fill="none"
-                                    stroke="currentColor"
-                                    strokeWidth="2"
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round">
-                                    <circle cx="11" cy="11" r="8" />
-                                    <path d="m21 21-4.3-4.3" />
-                                </svg>
-                            </div>
-                            <input
-                                type="text"
-                                className="py-2 ps-10 pe-16 block w-full bg-white border-gray-200 rounded-lg text-sm focus:outline-none focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-800 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder:text-neutral-400 dark:focus:ring-neutral-600"
-                                placeholder="Search"
+                    <div className="relative flex items-center">
+                        <svg
+                            className="absolute left-3 w-5 h-5 text-gray-500"
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                strokeWidth="2"
+                                d="M11 4a7 7 0 100 14 7 7 0 000-14zm10 10l-4.35-4.35"
                             />
-                            <div className="hidden absolute inset-y-0 end-0 flex items-center pointer-events-none z-20 pe-1">
-                                <button
-                                    type="button"
-                                    className="inline-flex shrink-0 justify-center items-center size-6 rounded-full text-gray-500 hover:text-blue-600 focus:outline-none focus:text-blue-600 dark:text-neutral-500 dark:hover:text-blue-500 dark:focus:text-blue-500"
-                                    aria-label="Close">
-                                    <span className="sr-only">Close</span>
-                                    <svg
-                                        className="shrink-0 size-4"
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        width="24"
-                                        height="24"
-                                        viewBox="0 0 24 24"
-                                        fill="none"
-                                        stroke="currentColor"
-                                        strokeWidth="2"
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round">
-                                        <circle cx="12" cy="12" r="10" />
-                                        <path d="m15 9-6 6" />
-                                        <path d="m9 9 6 6" />
-                                    </svg>
-                                </button>
-                            </div>
-                            <div className="absolute inset-y-0 end-0 flex items-center pointer-events-none z-20 pe-3 text-gray-400">
-                                <svg
-                                    className="shrink-0 size-3 text-gray-400 dark:text-white/60"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    width="24"
-                                    height="24"
-                                    viewBox="0 0 24 24"
-                                    fill="none"
-                                    stroke="currentColor"
-                                    strokeWidth="2"
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round">
-                                    <path d="M15 6v12a3 3 0 1 0 3-3H6a3 3 0 1 0 3 3V6a3 3 0 1 0-3 3h12a3 3 0 1 0-3-3" />
-                                </svg>
-                                <span className="mx-1">
-                                    <svg
-                                        className="shrink-0 size-3 text-gray-400 dark:text-white/60"
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        width="24"
-                                        height="24"
-                                        viewBox="0 0 24 24"
-                                        fill="none"
-                                        stroke="currentColor"
-                                        strokeWidth="2"
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round">
-                                        <path d="M5 12h14" />
-                                        <path d="M12 5v14" />
-                                    </svg>
-                                </span>
-                                <span className="text-xs">/</span>
-                            </div>
-                        </div>
+                        </svg>
+                        <input
+                            type="text"
+                            placeholder="Search..."
+                            className="w-full pl-10 px-4 py-2 border border-gray-300 rounded focus:outline-none focus:border-custom-pink focus:ring-1 focus:ring-custom-purple"
+                        />
                     </div>
 
                     <div className="flex flex-row items-center justify-end gap-1">
@@ -304,4 +244,3 @@ const Header = () => {
 };
 
 export default Header;
-
