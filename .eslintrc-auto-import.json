@@ -29,6 +29,7 @@
     "useRef": true,
     "useState": true,
     "useSyncExternalStore": true,
-    "useTransition": true
+    "useTransition": true,
+    "PrivateRoute": true
   }
 }

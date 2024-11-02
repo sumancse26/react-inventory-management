@@ -51,7 +51,7 @@ const Nav = () => {
                             <li>
                                 <NavLink
                                     className="flex justify-between gap-x-3.5 py-2 px-2.5  text-sm text-gray-800 rounded-lg hover:bg-gray-100 focus:bg-gray-100 focus:outline-none  dark:bg-neutral-700 dark:text-white"
-                                    to="/">
+                                    to="/admin">
                                     <span className="flex items-center gap-4">
                                         <svg
                                             className="shrink-0 size-4"
@@ -75,7 +75,7 @@ const Nav = () => {
 
                             <li>
                                 <NavLink
-                                    to="/users"
+                                    to="/admin/users"
                                     type="button"
                                     className="w-100 flex justify-between hs-accordion-toggle w-full text-start items-center gap-x-3.5 py-2 px-2.5 text-sm text-gray-800 rounded-lg hover:bg-gray-100 focus:outline-none focus:bg-gray-100 dark:bg-neutral-800 dark:hover:bg-neutral-700 dark:text-neutral-200">
                                     <span className="flex items-center gap-4">
@@ -102,7 +102,7 @@ const Nav = () => {
                             </li>
                             <li>
                                 <NavLink
-                                    to="/customers"
+                                    to="/admin/customers"
                                     type="button"
                                     className="w-100 flex justify-between hs-accordion-toggle w-full text-start items-center gap-x-3.5 py-2 px-2.5 text-sm text-gray-800 rounded-lg hover:bg-gray-100 focus:outline-none focus:bg-gray-100 dark:bg-neutral-800 dark:hover:bg-neutral-700 dark:text-neutral-200">
                                     <span className="flex items-center gap-4">
@@ -129,7 +129,7 @@ const Nav = () => {
                             </li>
                             <li className="hs-accordion" id="users-accordion">
                                 <NavLink
-                                    to="/products"
+                                    to="/admin/products"
                                     type="button"
                                     className="w-100 flex justify-between hs-accordion-toggle w-full text-start items-center gap-x-3.5 py-2 px-2.5 text-sm text-gray-800 rounded-lg hover:bg-gray-100 focus:outline-none focus:bg-gray-100 dark:bg-neutral-800 dark:hover:bg-neutral-700 dark:text-neutral-200">
                                     <span className="flex items-center gap-4">
@@ -161,7 +161,7 @@ const Nav = () => {
                             </li>
                             <li className="hs-accordion" id="users-accordion">
                                 <NavLink
-                                    to="/sales"
+                                    to="/admin/sales"
                                     type="button"
                                     className="w-100 flex justify-between hs-accordion-toggle w-full text-start items-center gap-x-3.5 py-2 px-2.5 text-sm text-gray-800 rounded-lg hover:bg-gray-100 focus:outline-none focus:bg-gray-100 dark:bg-neutral-800 dark:hover:bg-neutral-700 dark:text-neutral-200">
                                     <span className="flex items-center gap-4">
@@ -204,7 +204,7 @@ const Nav = () => {
 
                             <li className="hs-accordion" id="users-accordion">
                                 <NavLink
-                                    to="/user"
+                                    to="/admin/user"
                                     type="button"
                                     className="w-100 flex justify-between hs-accordion-toggle w-full text-start items-center gap-x-3.5 py-2 px-2.5 text-sm text-gray-800 rounded-lg hover:bg-gray-100 focus:outline-none focus:bg-gray-100 dark:bg-neutral-800 dark:hover:bg-neutral-700 dark:text-neutral-200">
                                     <span className="flex items-center gap-4">
@@ -230,7 +230,7 @@ const Nav = () => {
 
                             <li className="hs-accordion" id="users-accordion">
                                 <NavLink
-                                    to="/user"
+                                    to="/admin/user"
                                     type="button"
                                     className="w-100 flex justify-between hs-accordion-toggle w-full text-start items-center gap-x-3.5 py-2 px-2.5 text-sm text-gray-800 rounded-lg hover:bg-gray-100 focus:outline-none focus:bg-gray-100 dark:bg-neutral-800 dark:hover:bg-neutral-700 dark:text-neutral-200">
                                     <span className="flex items-center gap-4">

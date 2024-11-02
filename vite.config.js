@@ -28,7 +28,9 @@ export default defineConfig({
     ],
     resolve: {
         alias: {
-            '@': fileURLToPath(new URL('./src', import.meta.url))
+            '@': fileURLToPath(new URL('./src', import.meta.url)),
+            '@admin': fileURLToPath(new URL('./src/pages/admin', import.meta.url)),
+            '@frontend': fileURLToPath(new URL('./src/pages/frontend', import.meta.url))
         }
     },
     server: {
