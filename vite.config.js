@@ -14,8 +14,7 @@ export default defineConfig({
             eslintrc: {
                 enabled: true,
                 filepath: './.eslintrc-auto-import.json' // Path to ESLint configuration file
-            },
-            vueTemplate: false // Not needed for React
+            }
         }),
         terser({
             compress: {
@@ -26,6 +25,11 @@ export default defineConfig({
             }
         })
     ],
+    server: {
+        port: 5000,
+        host: true,
+        open: true
+    },
     resolve: {
         alias: {
             '@': fileURLToPath(new URL('./src', import.meta.url)),
@@ -33,10 +37,9 @@ export default defineConfig({
             '@frontend': fileURLToPath(new URL('./src/pages/frontend', import.meta.url))
         }
     },
-    server: {
-        port: 5000,
-        host: true,
-        open: true
-    }
+    define: {
+        'process.env': {} // Define process.env to use environment variables
+    },
+    devtools: { enabled: true }
 });
 

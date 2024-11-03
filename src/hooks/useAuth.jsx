@@ -1,5 +1,11 @@
+import Cookies from 'js-cookie';
+
 const useAuth = () => {
-    return false;
+    const token = Cookies.get('token');
+    if (!token) {
+        return false;
+    }
+    return true;
 };
 
 export default useAuth;

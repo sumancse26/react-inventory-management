@@ -102,6 +102,33 @@ const Nav = () => {
                             </li>
                             <li>
                                 <NavLink
+                                    to="/admin/categories"
+                                    type="button"
+                                    className="w-100 flex justify-between hs-accordion-toggle w-full text-start items-center gap-x-3.5 py-2 px-2.5 text-sm text-gray-800 rounded-lg hover:bg-gray-100 focus:outline-none focus:bg-gray-100 dark:bg-neutral-800 dark:hover:bg-neutral-700 dark:text-neutral-200">
+                                    <span className="flex items-center gap-4">
+                                        <svg
+                                            className="shrink-0 size-4"
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            width="24"
+                                            height="24"
+                                            viewBox="0 0 24 24"
+                                            fill="none"
+                                            stroke="currentColor"
+                                            strokeWidth="2"
+                                            strokeLinecap="round"
+                                            strokeLinejoin="round">
+                                            <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+                                            <circle cx="9" cy="7" r="4" />
+                                            <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
+                                            <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                                        </svg>
+                                        Category
+                                    </span>
+                                    <span className="material-icons">keyboard_arrow_right</span>
+                                </NavLink>
+                            </li>
+                            <li>
+                                <NavLink
                                     to="/admin/customers"
                                     type="button"
                                     className="w-100 flex justify-between hs-accordion-toggle w-full text-start items-center gap-x-3.5 py-2 px-2.5 text-sm text-gray-800 rounded-lg hover:bg-gray-100 focus:outline-none focus:bg-gray-100 dark:bg-neutral-800 dark:hover:bg-neutral-700 dark:text-neutral-200">

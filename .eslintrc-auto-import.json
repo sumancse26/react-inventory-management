@@ -30,6 +30,9 @@
     "useState": true,
     "useSyncExternalStore": true,
     "useTransition": true,
-    "PrivateRoute": true
+    "PrivateRoute": true,
+    "CategoryList": true,
+    "AddCategory": true,
+    "Alert": true
   }
 }

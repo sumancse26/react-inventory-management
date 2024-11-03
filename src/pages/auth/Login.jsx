@@ -1,4 +1,34 @@
+import { loginUser } from '@/services/apicalling';
+import Cookies from 'js-cookie';
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+
 const Login = () => {
+    const navigate = useNavigate();
+    const [formData, setFormData] = useState({
+        email: '',
+        password: ''
+    });
+
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setFormData({
+            ...formData,
+            [name]: value
+        });
+    };
+
+    const logInBtnHandler = async (e) => {
+        try {
+            e.preventDefault();
+            const res = await loginUser(formData);
+            Cookies.set('token', res.data.token, { expires: 7 });
+            navigate('/admin');
+        } catch (error) {
+            console.log(error);
+        }
+    };
+
     return (
         <div className="min-h-screen flex items-center justify-center bg-gray-100 p-6">
             <div className="flex flex-col md:flex-row bg-white shadow-lg rounded-lg overflow-hidden max-w-4xl w-full">
@@ -9,10 +39,10 @@ const Login = () => {
                         Enter your details to access your account and continue where you left off.
                     </p>
                     <p className="text-sm">
-                        Not a member?{' '}
+                        Not a member?
                         <a href="/register" className="underline">
                             Sign up now
-                        </a>{' '}
+                        </a>
                         and join our community.
                     </p>
                 </div>
@@ -20,7 +50,7 @@ const Login = () => {
                 {/* Right Side - Login Form */}
                 <div className="md:w-1/2 p-8">
                     <h2 className="text-2xl font-bold text-gray-800 mb-6 text-center">Login</h2>
-                    <form className="space-y-6">
+                    <form className="space-y-6" onSubmit={logInBtnHandler}>
                         <div>
                             <label className="block text-sm font-medium text-gray-600 mb-1">
                                 Email Address
@@ -28,7 +58,10 @@ const Login = () => {
                             <input
                                 type="email"
                                 placeholder="you@example.com"
+                                name="email"
+                                value={formData.email}
                                 className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                onChange={handleChange}
                             />
                         </div>
 
@@ -38,8 +71,11 @@ const Login = () => {
                             </label>
                             <input
                                 type="password"
+                                name="password"
                                 placeholder="Enter your password"
+                                value={formData.password}
                                 className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                onChange={handleChange}
                             />
                         </div>
 
@@ -58,7 +94,9 @@ const Login = () => {
                             </a>
                         </div>
 
-                        <button className="w-full py-3 mt-4 bg-gradient-to-r from-blue-500 to-purple-600 text-white font-semibold rounded hover:from-blue-600 hover:to-purple-700 focus:outline-none">
+                        <button
+                            type="submit"
+                            className="w-full py-3 mt-4 bg-gradient-to-r from-blue-500 to-purple-600 text-white font-semibold rounded hover:from-blue-600 hover:to-purple-700 focus:outline-none">
                             LOGIN
                         </button>
                     </form>

@@ -1,5 +1,6 @@
 import PrivateRoute from '@/components/PrivateRoute';
 import Layout from '@/layouts/MainLayout';
+import Category from '@admin/category/Category.jsx';
 import Customer from '@admin/customer/Customer.jsx';
 import Dashboard from '@admin/dashboard/Dashboard.jsx';
 import Product from '@admin/product/Product.jsx';
@@ -14,7 +15,14 @@ const AdminRoutes = [
             </PrivateRoute>
         ),
         children: [
-            { path: '', element: <Dashboard /> },
+            {
+                path: '',
+                element: <Dashboard />
+            },
+            {
+                path: 'categories',
+                element: <Category />
+            },
             {
                 path: 'customers',
                 element: <Customer />
