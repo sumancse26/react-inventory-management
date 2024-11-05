@@ -10,6 +10,8 @@ export const loginUser = async (data) => {
 
     return await axios.post(url, data);
 };
+
+//category api route defination
 export const createCategory = async (data) => {
     const url = 'api/create-category';
 
@@ -27,6 +29,30 @@ export const getCategory = async () => {
 };
 export const deleteCategory = async (id) => {
     const url = 'api/delete-category';
+
+    return await axios.post(url, id);
+};
+
+//customers api route defination
+export const createCustomer = async (data) => {
+    const url = 'api/create-customer';
+
+    return await axios.post(url, data);
+};
+export const updateCustomer = async (data) => {
+    const url = 'api/update-customer';
+
+    return await axios.post(url, data);
+};
+
+export const getCustomer = async () => {
+    const url = 'api/get-customer';
+
+    return await axios.get(url);
+};
+
+export const deleteCustomer = async (id) => {
+    const url = 'api/delete-customer';
 
     return await axios.post(url, id);
 };

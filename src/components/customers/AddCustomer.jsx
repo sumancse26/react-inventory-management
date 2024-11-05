@@ -1,6 +1,38 @@
+import { useEffect, useState } from 'react';
+
 /* eslint-disable react/prop-types */
-const AddCustomer = ({ isOpen, onClose }) => {
-    if (!isOpen) return null;
+const AddCustomer = ({ onClose, onSubmit, selectedCustomer }) => {
+    const [customerInfo, setCustomerInfo] = useState({
+        id: null,
+        name: '',
+        email: '',
+        mobile: ''
+    });
+
+    useEffect(() => {
+        if (selectedCustomer) {
+            setCustomerInfo((prev) => ({
+                ...prev,
+                id: selectedCustomer.id,
+                name: selectedCustomer.name,
+                email: selectedCustomer.email,
+                mobile: selectedCustomer.mobile
+            }));
+        } else {
+            setCustomerInfo((prev) => ({
+                ...prev,
+                id: null,
+                name: '',
+                email: '',
+                mobile: ''
+            }));
+        }
+    }, [selectedCustomer]);
+
+    const submitBtnHandler = (e) => {
+        e.preventDefault();
+        onSubmit(customerInfo);
+    };
     return (
         <div className="fixed inset-0 flex items-center justify-center bg-gray-900 bg-opacity-50 z-50 h-screen !m-0">
             <div className="bg-white dark:bg-neutral-800 rounded-lg shadow-lg max-w-md w-full mx-4 p-6 relative animate-fadeIn">
@@ -25,13 +57,17 @@ const AddCustomer = ({ isOpen, onClose }) => {
                 <h2 className="text-xl font-semibold text-gray-800 dark:text-white mb-4">
                     Add Customer
                 </h2>
-                <form className="space-y-4">
+                <form className="space-y-4" onSubmit={submitBtnHandler}>
                     <div>
                         <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">
                             Customer Name <span className="text-red-700">*</span>
                         </label>
                         <input
                             type="text"
+                            value={customerInfo.name}
+                            onChange={(e) =>
+                                setCustomerInfo({ ...customerInfo, name: e.target.value })
+                            }
                             className="mt-1 w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:border-custom-pink focus:ring-1 focus:ring-custom-purple"
                             placeholder="Enter name"
                         />
@@ -42,6 +78,10 @@ const AddCustomer = ({ isOpen, onClose }) => {
                         </label>
                         <input
                             type="email"
+                            value={customerInfo.email}
+                            onChange={(e) =>
+                                setCustomerInfo({ ...customerInfo, email: e.target.value })
+                            }
                             className="mt-1 w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:border-custom-pink focus:ring-1 focus:ring-custom-purple"
                             placeholder="Enter email"
                         />
@@ -52,6 +92,10 @@ const AddCustomer = ({ isOpen, onClose }) => {
                         </label>
                         <input
                             type="tel"
+                            value={customerInfo.mobile}
+                            onChange={(e) =>
+                                setCustomerInfo({ ...customerInfo, mobile: e.target.value })
+                            }
                             className="mt-1 w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:border-custom-pink focus:ring-1 focus:ring-custom-purple"
                             placeholder="Enter mobile number"
                         />
