@@ -1,9 +1,18 @@
 /* eslint-disable react/prop-types */
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
-const AddCategory = ({ isOpen, onClose, onSubmit }) => {
+const AddCategory = ({ isOpen, onClose, onSubmit, currentData }) => {
     const [categoryName, setCategoryName] = useState('');
-    if (!isOpen) return null;
+
+    useEffect(() => {
+        if (!isOpen) return;
+        if (currentData) {
+            setCategoryName(currentData.name);
+        } else {
+            setCategoryName('');
+        }
+        return () => {};
+    }, [isOpen, currentData]);
 
     const handleSubmit = (e) => {
         try {
@@ -13,12 +22,16 @@ const AddCategory = ({ isOpen, onClose, onSubmit }) => {
             console.log(e);
         }
     };
+
+    const closeBtnHandler = () => {
+        onClose(false);
+    };
     return (
         <div className="fixed inset-0 flex items-center justify-center bg-gray-900 bg-opacity-50 z-50 h-screen !m-0">
             <div className="bg-white dark:bg-neutral-800 rounded-lg shadow-lg max-w-md w-full mx-4 p-6 relative animate-fadeIn">
                 <button
                     className="absolute top-4 right-4 text-gray-500 hover:text-gray-800 dark:hover:text-gray-300"
-                    onClick={onClose}>
+                    onClick={closeBtnHandler}>
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
                         width="24"
@@ -56,7 +69,7 @@ const AddCategory = ({ isOpen, onClose, onSubmit }) => {
                         <button
                             type="button"
                             className="py-2 px-4 bg-gray-200 text-red-700 rounded-md hover:bg-gray-300 focus:ring-2 focus:ring-gray-500 dark:bg-neutral-600 dark:text-gray-300 dark:hover:bg-neutral-700 dark:focus:ring-neutral-400"
-                            onClick={onClose}>
+                            onClick={closeBtnHandler}>
                             Cancel
                         </button>
                         <button
