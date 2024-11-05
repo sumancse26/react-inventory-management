@@ -33,6 +33,7 @@
     "PrivateRoute": true,
     "CategoryList": true,
     "AddCategory": true,
-    "Alert": true
+    "Alert": true,
+    "AddProduct": true
   }
 }

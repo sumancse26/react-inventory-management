@@ -5,8 +5,7 @@ const createAxiosInstance = () => {
     const config = {
         baseURL: import.meta.env.VITE_API_BASE_URL, // Use your environment variable for the base URL
         headers: {
-            Accept: 'application/json',
-            'Content-Type': 'application/json'
+            Accept: 'application/json'
         }
     };
 

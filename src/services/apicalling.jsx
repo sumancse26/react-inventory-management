@@ -56,3 +56,15 @@ export const deleteCustomer = async (id) => {
 
     return await axios.post(url, id);
 };
+
+//product route definetion
+export const getProduct = async (data) => {
+    const url = 'api/get-product';
+
+    return await axios.get(url, data);
+};
+export const createProduct = async (data) => {
+    const url = 'api/create-product';
+
+    return await axios.post(url, data);
+};
