@@ -78,3 +78,10 @@ export const deleteProduct = async (data) => {
 
     return await axios.post(url, data);
 };
+
+//sales and invoice route definetion
+export const createInvoice = async (data) => {
+    const url = 'api/create-invoice';
+
+    return await axios.post(url, data);
+};
