@@ -1,9 +1,8 @@
 /* eslint-disable react/prop-types */
-import { getCategory } from '@/services/apicalling';
 import { useEffect, useState } from 'react';
 import { CSSTransition } from 'react-transition-group';
 
-const CreateProductModal = ({ isOpen, onClose, onSave }) => {
+const CreateProductModal = ({ isOpen, onClose, onSave, currentProduct, categoryList }) => {
     const [productInfo, setProductInfo] = useState({
         category: '',
         name: '',
@@ -12,20 +11,13 @@ const CreateProductModal = ({ isOpen, onClose, onSave }) => {
         image: ''
     });
 
-    const [categoryList, setCategoryList] = useState([]);
-
     useEffect(() => {
-        categoryListHandler();
-    }, []);
-
-    const categoryListHandler = async () => {
-        try {
-            const res = await getCategory();
-            setCategoryList(res.data.categoryList || []);
-        } catch (e) {
-            console.log(e);
+        if (currentProduct) {
+            setProductInfo(currentProduct);
         }
-    };
+
+        return () => {};
+    }, [currentProduct]);
 
     const handleImageChange = (e) => {
         setProductInfo({ ...productInfo, image: e.target.files[0] });

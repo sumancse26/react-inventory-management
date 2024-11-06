@@ -68,3 +68,13 @@ export const createProduct = async (data) => {
 
     return await axios.post(url, data);
 };
+export const updateProduct = async (data) => {
+    const url = 'api/update-product';
+
+    return await axios.post(url, data);
+};
+export const deleteProduct = async (data) => {
+    const url = 'api/delete-product';
+
+    return await axios.post(url, data);
+};

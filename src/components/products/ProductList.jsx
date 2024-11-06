@@ -1,16 +1,32 @@
-import { createProduct, getProduct } from '@/services/apicalling';
+import {
+    createProduct,
+    deleteProduct,
+    getCategory,
+    getProduct,
+    updateProduct
+} from '@/services/apicalling';
 import { useEffect, useState } from 'react';
 import AddProduct from './AddProduct';
 
 const ProductList = () => {
     const [showModal, setShowModal] = useState(false);
     const [productList, setProductList] = useState([]);
+    const [categoryList, setCategoryList] = useState([]);
+    const [tempData, setTempData] = useState({});
 
     useEffect(() => {
         productListHandler();
 
-        () => {};
+        return () => {};
     }, []);
+
+    useEffect(() => {
+        if (categoryList.length === 0) {
+            categoryListHandler();
+        }
+
+        return () => {};
+    }, [categoryList]);
 
     const productListHandler = async () => {
         try {
@@ -21,20 +37,56 @@ const ProductList = () => {
             console.log(e);
         }
     };
+
+    const categoryListHandler = async () => {
+        try {
+            const res = await getCategory();
+            setCategoryList(res.data.categoryList || []);
+        } catch (e) {
+            console.log(e);
+        }
+    };
+
     const saveProduct = async (data) => {
         try {
             const formData = new FormData();
+            formData.append('id', data.id);
             formData.append('name', data.name);
             formData.append('price', data.price);
             formData.append('unit', data.unit);
             formData.append('category_id', data.category);
             formData.append('image', data.image);
-            await createProduct(formData);
 
+            if (data.id) {
+                await updateProduct(formData);
+            } else {
+                await createProduct(formData);
+            }
+
+            setShowModal(false);
+            setTempData({});
             productListHandler();
         } catch (e) {
             console.log(e);
         }
+    };
+
+    const deleteProductHandler = async (id) => {
+        try {
+            const res = await deleteProduct({ id: id });
+            if (res.data.success) {
+                const filteredList = productList.filter((item) => item.id !== id);
+                setProductList(filteredList);
+                productListHandler();
+            }
+        } catch (e) {
+            console.log(e);
+        }
+    };
+
+    const editproductHandler = (data) => {
+        setTempData({ ...data, category: data.category_id });
+        setShowModal(true);
     };
     return (
         <>
@@ -155,15 +207,13 @@ const ProductList = () => {
                                                 <td scope="col" className="whitespace-nowrap pt-3">
                                                     <div className="flex justify-end pe-6 gap-3">
                                                         <span
-                                                            onClick={() =>
-                                                                editCustomerHandler(item)
-                                                            }
+                                                            onClick={() => editproductHandler(item)}
                                                             className="material-icons edit invisible group-hover:visible text-sm bg-purple-300 transition-opacity duration-300 opacity-0 group-hover:opacity-100 w-[30px] h-[30px] border rounded-full flex justify-center items-center cursor-pointer hover:text-white hover:bg-purple-700 ">
                                                             edit
                                                         </span>
                                                         <span
                                                             onClick={() =>
-                                                                deleteCustomerHandler(item.id)
+                                                                deleteProductHandler(item.id)
                                                             }
                                                             className="material-icons edit invisible group-hover:visible text-md text-white bg-red-500 transition-opacity duration-300 opacity-0 group-hover:opacity-100 w-[30px] h-[30px] border rounded-full flex justify-center items-center cursor-pointer hover:text-white hover:bg-red-700 ">
                                                             remove
@@ -237,6 +287,8 @@ const ProductList = () => {
                     isOpen={showModal}
                     onClose={() => setShowModal(false)}
                     onSave={saveProduct}
+                    currentProduct={tempData}
+                    categoryList={categoryList}
                 />
             )}
         </>
