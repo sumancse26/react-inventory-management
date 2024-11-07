@@ -1,3 +1,4 @@
+import Skeloton from '@/components/skeleton';
 import { createInvoice, getCustomer, getProduct } from '@/services/apicalling';
 import { useEffect, useState } from 'react';
 const Sales = () => {
@@ -6,6 +7,7 @@ const Sales = () => {
     const [addedProducts, setAddedProducts] = useState([]);
     const [selectedCustomer, setSelectedCustomer] = useState({});
     const [subTotal, setSubTotal] = useState(0);
+    const [loading, setLoading] = useState(false);
 
     useEffect(() => {
         productListHandler();
@@ -47,11 +49,14 @@ const Sales = () => {
     };
 
     const customerListHandler = async () => {
+        setLoading(true);
         try {
             const res = await getCustomer();
             setCustomerList(res.data.customerList || []);
+            setLoading(false);
         } catch (e) {
             setCustomerList([]);
+            setLoading(false);
             console.log(e.message);
         }
     };
@@ -262,55 +267,61 @@ const Sales = () => {
                                 </label>
                             </div>
                         </div>
-                        <div className="!h-[calc(100vh-315px)] overflow-auto">
-                            <table className="min-w-full divide-y divide-gray-200 dark:divide-neutral-700">
-                                <thead className="divide-y divide-gray-200 dark:divide-neutral-700">
-                                    <tr className="flex w-full">
-                                        <th className="flex items-center justify-center basis-2/12 xl:ps-0 pe-6 ps-0">
-                                            <span className="text-xs font-semibold uppercase tracking-wide text-gray-800 dark:text-neutral-200">
-                                                SL
-                                            </span>
-                                        </th>
-                                        <th className="flex items-center gap-x-2 basis-8/12 ps-6 lg:ps-3 xl:ps-0 pe-6 text-start">
-                                            <span className="text-xs font-semibold uppercase tracking-wide text-gray-800 dark:text-neutral-200">
-                                                Name
-                                            </span>
-                                        </th>
-                                        <th className="flex items-center basis-2/12 pe-6 text-end">
-                                            {/* Add any header title if needed */}
-                                        </th>
-                                    </tr>
-                                </thead>
-                                <tbody className="divide-y divide-gray-200 dark:divide-neutral-700">
-                                    {productList.map((prod, prodIndex) => (
-                                        <tr
-                                            key={prodIndex}
-                                            className="flex w-full py-2 group transition-colors duration-200">
-                                            <td className="flex items-center justify-center text-sm text-gray-500 basis-2/12 pe-6 xl:ps-0 ps-0">
-                                                {prodIndex + 1}
-                                            </td>
-                                            <td className="flex items-center basis-8/12 ps-6 lg:ps-3 xl:ps-0 pe-6 text-start">
-                                                <span className="text-sm text-gray-500 dark:text-neutral-500">
-                                                    {prod.name}
-                                                </span>
-                                            </td>
-                                            <td className="flex items-center justify-end basis-2/12 pe-6">
-                                                <span
-                                                    onClick={() => addProductHandler(prod)}
-                                                    className="bg-purple-100 rounded-full px-3 py-1 text-sm text-purple-700 dark:text-neutral-500 hover:cursor-pointer">
-                                                    Add
-                                                </span>
-                                            </td>
-                                        </tr>
-                                    ))}
-                                </tbody>
-                            </table>
-                        </div>
+                        {loading ? (
+                            <Skeloton />
+                        ) : (
+                            <>
+                                <div className="!h-[calc(100vh-315px)] overflow-auto">
+                                    <table className="min-w-full divide-y divide-gray-200 dark:divide-neutral-700">
+                                        <thead className="divide-y divide-gray-200 dark:divide-neutral-700">
+                                            <tr className="flex w-full">
+                                                <th className="flex items-center justify-center basis-2/12 xl:ps-0 pe-6 ps-0">
+                                                    <span className="text-xs font-semibold uppercase tracking-wide text-gray-800 dark:text-neutral-200">
+                                                        SL
+                                                    </span>
+                                                </th>
+                                                <th className="flex items-center gap-x-2 basis-8/12 ps-6 lg:ps-3 xl:ps-0 pe-6 text-start">
+                                                    <span className="text-xs font-semibold uppercase tracking-wide text-gray-800 dark:text-neutral-200">
+                                                        Name
+                                                    </span>
+                                                </th>
+                                                <th className="flex items-center basis-2/12 pe-6 text-end">
+                                                    {/* Add any header title if needed */}
+                                                </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody className="divide-y divide-gray-200 dark:divide-neutral-700">
+                                            {productList.map((prod, prodIndex) => (
+                                                <tr
+                                                    key={prodIndex}
+                                                    className="flex w-full py-2 group transition-colors duration-200">
+                                                    <td className="flex items-center justify-center text-sm text-gray-500 basis-2/12 pe-6 xl:ps-0 ps-0">
+                                                        {prodIndex + 1}
+                                                    </td>
+                                                    <td className="flex items-center basis-8/12 ps-6 lg:ps-3 xl:ps-0 pe-6 text-start">
+                                                        <span className="text-sm text-gray-500 dark:text-neutral-500">
+                                                            {prod.name}
+                                                        </span>
+                                                    </td>
+                                                    <td className="flex items-center justify-end basis-2/12 pe-6">
+                                                        <span
+                                                            onClick={() => addProductHandler(prod)}
+                                                            className="bg-purple-100 rounded-full px-3 py-1 text-sm text-purple-700 dark:text-neutral-500 hover:cursor-pointer">
+                                                            Add
+                                                        </span>
+                                                    </td>
+                                                </tr>
+                                            ))}
+                                        </tbody>
+                                    </table>
+                                </div>
 
-                        <div className="flex justify-between mt-4 text-sm text-gray-500">
-                            <span>Previous</span>
-                            <span>Next</span>
-                        </div>
+                                <div className="flex justify-between mt-4 text-sm text-gray-500">
+                                    <span>Previous</span>
+                                    <span>Next</span>
+                                </div>
+                            </>
+                        )}
                     </div>
                 </div>
 
@@ -330,55 +341,62 @@ const Sales = () => {
                                 </label>
                             </div>
                         </div>
-                        <div className="!h-[calc(100vh-315px)] overflow-auto">
-                            <table className="min-w-full divide-y divide-gray-200 dark:divide-neutral-700">
-                                <thead className="divide-y divide-gray-200 dark:divide-neutral-700">
-                                    <tr className="flex w-full">
-                                        <th className="flex items-center justify-center basis-2/12 xl:ps-0 pe-6 ps-0">
-                                            <span className="text-xs font-semibold uppercase tracking-wide text-gray-800 dark:text-neutral-200">
-                                                SL
-                                            </span>
-                                        </th>
-                                        <th className="flex items-center gap-x-2 basis-8/12 ps-6 lg:ps-3 xl:ps-0 pe-6 text-start">
-                                            <span className="text-xs font-semibold uppercase tracking-wide text-gray-800 dark:text-neutral-200">
-                                                Name
-                                            </span>
-                                        </th>
-                                        <th className="flex items-center basis-2/12 pe-6 text-end">
-                                            {/* Add any header title if needed */}
-                                        </th>
-                                    </tr>
-                                </thead>
-                                <tbody className="divide-y divide-gray-200 dark:divide-neutral-700">
-                                    {customerList.map((cus, cusIndex) => (
-                                        <tr
-                                            key={cusIndex}
-                                            className="flex w-full py-2 group transition-colors duration-200">
-                                            <td className="flex items-center justify-center text-sm text-gray-500 basis-2/12 pe-6 xl:ps-0 ps-0">
-                                                {cusIndex + 1}
-                                            </td>
-                                            <td className="flex items-center basis-8/12 ps-6 lg:ps-3 xl:ps-0 pe-6 text-start">
-                                                <span className="text-sm text-gray-500 dark:text-neutral-500">
-                                                    {cus.name}
-                                                </span>
-                                            </td>
-                                            <td className="flex items-center justify-end basis-2/12 pe-6">
-                                                <span
-                                                    onClick={() => addCustomerHandler(cus)}
-                                                    className="bg-purple-100 rounded-full px-3 py-1 text-sm text-purple-700 dark:text-neutral-500 hover:cursor-pointer">
-                                                    Add
-                                                </span>
-                                            </td>
-                                        </tr>
-                                    ))}
-                                </tbody>
-                            </table>
-                        </div>
 
-                        <div className="flex justify-between mt-4 text-sm text-gray-500">
-                            <span>Previous</span>
-                            <span>Next</span>
-                        </div>
+                        {loading ? (
+                            <Skeloton />
+                        ) : (
+                            <>
+                                <div className="!h-[calc(100vh-315px)] overflow-auto">
+                                    <table className="min-w-full divide-y divide-gray-200 dark:divide-neutral-700">
+                                        <thead className="divide-y divide-gray-200 dark:divide-neutral-700">
+                                            <tr className="flex w-full">
+                                                <th className="flex items-center justify-center basis-2/12 xl:ps-0 pe-6 ps-0">
+                                                    <span className="text-xs font-semibold uppercase tracking-wide text-gray-800 dark:text-neutral-200">
+                                                        SL
+                                                    </span>
+                                                </th>
+                                                <th className="flex items-center gap-x-2 basis-8/12 ps-6 lg:ps-3 xl:ps-0 pe-6 text-start">
+                                                    <span className="text-xs font-semibold uppercase tracking-wide text-gray-800 dark:text-neutral-200">
+                                                        Name
+                                                    </span>
+                                                </th>
+                                                <th className="flex items-center basis-2/12 pe-6 text-end">
+                                                    {/* Add any header title if needed */}
+                                                </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody className="divide-y divide-gray-200 dark:divide-neutral-700">
+                                            {customerList.map((cus, cusIndex) => (
+                                                <tr
+                                                    key={cusIndex}
+                                                    className="flex w-full py-2 group transition-colors duration-200">
+                                                    <td className="flex items-center justify-center text-sm text-gray-500 basis-2/12 pe-6 xl:ps-0 ps-0">
+                                                        {cusIndex + 1}
+                                                    </td>
+                                                    <td className="flex items-center basis-8/12 ps-6 lg:ps-3 xl:ps-0 pe-6 text-start">
+                                                        <span className="text-sm text-gray-500 dark:text-neutral-500">
+                                                            {cus.name}
+                                                        </span>
+                                                    </td>
+                                                    <td className="flex items-center justify-end basis-2/12 pe-6">
+                                                        <span
+                                                            onClick={() => addCustomerHandler(cus)}
+                                                            className="bg-purple-100 rounded-full px-3 py-1 text-sm text-purple-700 dark:text-neutral-500 hover:cursor-pointer">
+                                                            Add
+                                                        </span>
+                                                    </td>
+                                                </tr>
+                                            ))}
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                                <div className="flex justify-between mt-4 text-sm text-gray-500">
+                                    <span>Previous</span>
+                                    <span>Next</span>
+                                </div>
+                            </>
+                        )}
                     </div>
                 </div>
             </div>

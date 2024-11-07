@@ -85,3 +85,29 @@ export const createInvoice = async (data) => {
 
     return await axios.post(url, data);
 };
+
+export const getInvoice = async () => {
+    const url = 'api/get-invoice';
+
+    return await axios.get(url);
+};
+export const getInvoiceDetails = async (data) => {
+    const url = 'api/invoice-details';
+
+    return await axios.post(url, data);
+};
+export const deleteInvoice = async (data) => {
+    const url = 'api/delete-details';
+
+    return await axios.post(url, data);
+};
+export const selesReport = async (data) => {
+    const url = `/api/sales-report/${data.fromDate}/${data.toDate}`;
+
+    return await axios.get(url);
+};
+export const getDashboardSummary = async () => {
+    const url = `/api/summary`;
+
+    return await axios.get(url);
+};

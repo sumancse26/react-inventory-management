@@ -34,6 +34,9 @@
     "CategoryList": true,
     "AddCategory": true,
     "Alert": true,
-    "AddProduct": true
+    "AddProduct": true,
+    "InvoiceList": true,
+    "InvoiceDetails": true,
+    "Skeleton": true
   }
 }
